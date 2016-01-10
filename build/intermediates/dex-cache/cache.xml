@@ -2,53 +2,53 @@
 <items version="2" >
 
     <item
-        jar="/media/namal/Media/WORKBENCH/SCORE/SenzServices/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jar="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/classes-390972d2df6c0d7f5cf47d571d143f74da1d0d3b.jar" />
+    </item>
+    <item
+        jar="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/exploded-aar/Android-SenZ-Services/senzc/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="770d39ad2a065822937cd658eb9f5500ac5e3ffe">
+        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/classes-fa4c93f74a1755562c9b04292f11ef8b6d3ff620.jar" />
+    </item>
+    <item
+        jar="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/SenzServices/app/build/intermediates/pre-dexed/debug/classes-4414b3f935c4a9936be8f2e421eb33a5999bec35.jar" />
+        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/classes-1235342f0179c4dcd42fe762831b3ab60b693a45.jar" />
     </item>
     <item
-        jar="/media/namal/Media/WORKBENCH/SCORE/SenzServices/app/build/intermediates/exploded-aar/SenzServices/senzc/unspecified/jars/classes.jar"
+        jar="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="5ca6644354bd7c81d53712153930887d53c06fee">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/SenzServices/app/build/intermediates/pre-dexed/debug/classes-30ca0eeb8e80f067969a74ea441892fc67342b9d.jar" />
-    </item>
-    <item
-        jar="/media/namal/Media/WORKBENCH/SCORE/SenzServices/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/SenzServices/app/build/intermediates/pre-dexed/debug/classes-eead5ddec5f605baac68ca771cc640e0687656b7.jar" />
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-b361edb59dd5ee4e547bfa2c28ce3168b67f251f.jar" />
     </item>
     <item
         jar="/home/namal/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/SenzServices/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-4694c724d83f49872aea37de949ea31779cbac7a.jar" />
+        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-4694c724d83f49872aea37de949ea31779cbac7a.jar" />
     </item>
     <item
-        jar="/media/namal/Media/WORKBENCH/SCORE/SenzServices/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jar="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/SenzServices/app/build/intermediates/pre-dexed/debug/classes-6f3675e81ad582e6cace4811edc44539f2cee980.jar" />
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/classes-02253a74d1e8081b2ad5a643f6f9ffecee2b509d.jar" />
     </item>
     <item
-        jar="/media/namal/Media/WORKBENCH/SCORE/SenzServices/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/SenzServices/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-1655c48447e3c9959db50081241e39c9f54b0ad2.jar" />
-    </item>
-    <item
-        jar="/media/namal/Media/WORKBENCH/SCORE/SenzServices/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jar="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/SenzServices/app/build/intermediates/pre-dexed/debug/classes-8fba06b208356478bb07ecd52b3842d6c8ff5d0e.jar" />
+        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/classes-2e630951bac8a298198c1eec3cec4aa4684be908.jar" />
     </item>
 
 </items>
