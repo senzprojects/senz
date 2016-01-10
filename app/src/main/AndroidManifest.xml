@@ -69,7 +69,7 @@
 
         <activity
             android:name=".utils.Home"
-            android:label="@string/title_activity_home"
+            android:label="Senz Applications"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
