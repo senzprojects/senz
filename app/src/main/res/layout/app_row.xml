@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:layout_height="130dp"
+        android:layout_width="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/icon"
+                android:textSize="22sp"
+                android:text="App name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/descr"
+                android:layout_marginRight="10dp"
+                android:textStyle="italic"
+                android:layout_marginLeft="15dp"
+                android:textSize="17sp"
+                android:layout_below="@+id/name"
+                android:maxLines="2"
+                android:layout_toRightOf="@+id/icon"
+                android:text="This is where the description would go or other relevant infromationn about the app"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RatingBar
+                android:id="@+id/rating"
+                android:layout_marginBottom="6.5dp"
+                style="@android:style/Widget.Holo.RatingBar.Small"
+                android:layout_toRightOf="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/action"
+                android:textColor="@color/White"
+                android:text="INSTALL"
+                android:background="@color/DodgerBlue"
+                android:textSize="13sp"
+                android:layout_width="90dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_height="25dp" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+</LinearLayout>
