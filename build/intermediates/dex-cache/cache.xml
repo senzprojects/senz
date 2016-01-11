@@ -2,6 +2,7 @@
 <items version="2" >
 
     <item
+<<<<<<< HEAD
         jar="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
@@ -49,6 +50,13 @@
         revision="23.0.2"
         sha1="5c5699834e9722f1c288fea2de82725d078ba127">
         <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/classes-2e630951bac8a298198c1eec3cec4aa4684be908.jar" />
+=======
+        jar="C:\Users\Anesu\AndroidStudioProjects\senz-service\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="C:\Users\Anesu\AndroidStudioProjects\senz-service\app\build\intermediates\pre-dexed\debug\classes-453714499c4892865f64675c3e62e25fb6c67b63.jar" />
+>>>>>>> e1df9829c51c4ec8bb53e4488f00bfcc56a4d74c
     </item>
 
 </items>

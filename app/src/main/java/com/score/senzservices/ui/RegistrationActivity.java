@@ -29,6 +29,7 @@ import com.score.senzservices.R;
 import com.score.senzservices.exceptions.InvalidInputFieldsException;
 import com.score.senzservices.services.RemoteSenzService;
 import com.score.senzservices.utils.ActivityUtils;
+import com.score.senzservices.utils.Home;
 import com.score.senzservices.utils.NetworkUtil;
 import com.score.senzservices.utils.PreferenceUtils;
 import com.score.senzservices.utils.RSAUtils;
@@ -288,7 +289,7 @@ public class RegistrationActivity extends Activity implements View.OnClickListen
      * This method will be call after successful login
      */
     private void navigateToHome() {
-        Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+        Intent intent = new Intent(RegistrationActivity.this, Home.class);
         RegistrationActivity.this.startActivity(intent);
         RegistrationActivity.this.finish();
     }
