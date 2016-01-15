@@ -2,53 +2,53 @@
 <items version="2" >
 
     <item
-        jar="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/classes-390972d2df6c0d7f5cf47d571d143f74da1d0d3b.jar" />
-    </item>
-    <item
-        jar="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/exploded-aar/Android-SenZ-Services/senzc/unspecified/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="770d39ad2a065822937cd658eb9f5500ac5e3ffe">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/classes-fa4c93f74a1755562c9b04292f11ef8b6d3ff620.jar" />
-    </item>
-    <item
-        jar="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jar="C:\Users\Anesu\Documents\AndroidProjects\senz-service\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/classes-1235342f0179c4dcd42fe762831b3ab60b693a45.jar" />
+        <dex dex="C:\Users\Anesu\Documents\AndroidProjects\senz-service\app\build\intermediates\pre-dexed\debug\classes-a14d74a117bcc7c368651e18a0f0eed3cfa82281.jar" />
     </item>
     <item
-        jar="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jar="C:\Users\Anesu\Documents\AndroidProjects\senz-service\app\build\intermediates\exploded-aar\senz-service\senzc\unspecified\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-b361edb59dd5ee4e547bfa2c28ce3168b67f251f.jar" />
+        sha1="c9ddf166184420a6dd1d41f1a470448e354bca30">
+        <dex dex="C:\Users\Anesu\Documents\AndroidProjects\senz-service\app\build\intermediates\pre-dexed\debug\classes-5080d0ad96c61e1fd31d9d081436f22f45b131e2.jar" />
     </item>
     <item
-        jar="/home/namal/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-4694c724d83f49872aea37de949ea31779cbac7a.jar" />
-    </item>
-    <item
-        jar="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jar="C:\Users\Anesu\Documents\AndroidProjects\senz-service\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/classes-02253a74d1e8081b2ad5a643f6f9ffecee2b509d.jar" />
+        <dex dex="C:\Users\Anesu\Documents\AndroidProjects\senz-service\app\build\intermediates\pre-dexed\debug\classes-747ab6832f951337dfdb999d845f904d83454b2b.jar" />
     </item>
     <item
-        jar="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jar="C:\Users\Anesu\Documents\AndroidProjects\senz-service\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="C:\Users\Anesu\Documents\AndroidProjects\senz-service\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1-cd0d84d3cc1472614dc39676eec2f9297e2b0c53.jar" />
+    </item>
+    <item
+        jar="C:\Users\Anesu\Documents\AndroidProjects\senz-service\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="/media/namal/Media/WORKBENCH/SCORE/Android-SenZ-Services/app/build/intermediates/pre-dexed/debug/classes-2e630951bac8a298198c1eec3cec4aa4684be908.jar" />
+        <dex dex="C:\Users\Anesu\Documents\AndroidProjects\senz-service\app\build\intermediates\pre-dexed\debug\classes-41f8224b7e88130863041588988c69de3fee7132.jar" />
+    </item>
+    <item
+        jar="C:\Users\Anesu\Documents\AndroidProjects\senz-service\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="C:\Users\Anesu\Documents\AndroidProjects\senz-service\app\build\intermediates\pre-dexed\debug\classes-cd49bc20b28d8b5d9f7a417f3c7c2ffa7bc7f20c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Anesu\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="C:\Users\Anesu\Documents\AndroidProjects\senz-service\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1-59034a6b9b7789057b95c313e8d1a7904507f219.jar" />
     </item>
 
 </items>
