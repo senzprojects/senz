@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.score.senzservices">
+    package="com.score.senz">
     android:versionCode="3"
     android:versionName="1.2">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.SplashActivity"
+            android:name="com.score.senz.ui.SplashActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -30,14 +30,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.RegistrationActivity"
+            android:name="com.score.senz.ui.RegistrationActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.NoActionBar" />
 
         <service
-            android:name=".services.RemoteSenzService"
+            android:name="com.score.senz.services.RemoteSenzService"
             android:enabled="true"
             android:process=":remote">
             <intent-filter>
@@ -45,30 +45,30 @@
             </intent-filter>
         </service>
 
-        <receiver android:name=".receivers.BootCompleteReceiver">
+        <receiver android:name="com.score.senz.receivers.BootCompleteReceiver">
             <intent-filter>
                 <action android:name="com.score.senzservices.senzservice" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".receivers.installationReceiver">
+        <receiver android:name="com.score.senz.receivers.installationReceiver">
             <intent-filter android:priority="999">
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
 
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".receivers.SenzReceiver">
+        <receiver android:name="com.score.senz.receivers.SenzReceiver">
             <intent-filter>
                 <action android:name="com.score.senzservices.NEW_SENZ" />
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".receivers.AlarmReceiver"
+            android:name="com.score.senz.receivers.AlarmReceiver"
             android:process=":remote"></receiver>
 
         <activity
-            android:name=".ui.HomeActivity"
+            android:name="com.score.senz.ui.HomeActivity"
             android:label="Senz Applications"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

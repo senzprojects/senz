@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Senz Services</string>
+    <string name="app_name">SenZ</string>
     <string name="action_settings">Settings</string>
     <string name="new_senz">SenZ received</string>
     <string name="preference_file_key">com.score.senz.PREFERENCE_FILE_KEY</string>
