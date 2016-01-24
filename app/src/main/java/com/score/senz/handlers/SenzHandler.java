@@ -34,7 +34,7 @@ public class SenzHandler {
         return instance;
     }
 
-    public void handleSenz(String senzMessage) {//ToDo broadcast all senzes
+    public void handleSenz(String senzMessage) {
         try {
             // parse and verify senz
             Senz senz = SenzParser.parse(senzMessage);
@@ -74,22 +74,21 @@ public class SenzHandler {
     }
 
     private void handleShareSenz(Senz senz) {
-
-        Intent newSenzIntent = new Intent("com.score.senzc.NEW_SENZ");
+        Intent newSenzIntent = new Intent("com.score.senz.NEW_SENZ");
         newSenzIntent.putExtra("SENZ", senz);
         context.sendBroadcast(newSenzIntent);
     }
 
     private void handleGetSenz(Senz senz) {
 
-        Intent newSenzIntent = new Intent("com.score.senzc.NEW_SENZ");
+        Intent newSenzIntent = new Intent("com.score.senz.NEW_SENZ");
         newSenzIntent.putExtra("SENZ", senz);
         context.sendBroadcast(newSenzIntent);
     }
 
     private void handlePutSenz(Senz senz) {
 
-        Intent newSenzIntent = new Intent("com.score.senzc.NEW_SENZ");
+        Intent newSenzIntent = new Intent("com.score.senz.NEW_SENZ");
         newSenzIntent.putExtra("SENZ", senz);
         context.sendBroadcast(newSenzIntent);
     }
@@ -106,7 +105,7 @@ public class SenzHandler {
 //        context.sendBroadcast(intent);
 
         // broadcast received senz
-        Intent newSenzIntent = new Intent("com.score.senzc.DATA");
+        Intent newSenzIntent = new Intent("com.score.senz.DATA");
         newSenzIntent.putExtra("SENZ", senz);
         context.sendBroadcast(newSenzIntent);
     }

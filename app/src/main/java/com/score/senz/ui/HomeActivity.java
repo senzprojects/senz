@@ -40,11 +40,11 @@ public class HomeActivity extends AppCompatActivity {
     //to be deleted (for testing purposes only)
     public void addApps() {
         //locationz
-        apps.add(new AppInfo(getBaseContext(), "LocationZ", isPackageInstalled("com.score.senz"), 5,
-                "Location sharing app", "com.score.senz", BitmapFactory.decodeResource(getResources(), R.mipmap.ic_locationz)));
+        apps.add(new AppInfo(getBaseContext(), "LocationZ", isPackageInstalled("com.score.locationz"), 5,
+                "Location sharing app", "com.score.locationz", BitmapFactory.decodeResource(getResources(), R.drawable.blue_dot_icon)));
 
-        apps.add(new AppInfo(getBaseContext(), "HomeZ", isPackageInstalled("org.scorelab.pi"), -1,
-                "Smart Home Controlling Application", "org.scorelab.pi", BitmapFactory.decodeResource(getResources(), R.mipmap.ic_pi)));
+        apps.add(new AppInfo(getBaseContext(), "HomeZ", isPackageInstalled("org.score.homez"), -1,
+                "Smart Home Controlling Application", "org.score.homez", BitmapFactory.decodeResource(getResources(), R.drawable.homez_icon)));
     }
 
     private void filterAppList() {
