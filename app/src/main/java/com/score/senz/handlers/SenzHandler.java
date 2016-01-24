@@ -4,15 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-//import com.score.senz.db.SenzorsDbSource;
-import com.score.senz.listeners.ShareSenzListener;
-
 import com.score.senz.utils.SenzParser;
 import com.score.senzc.pojos.Senz;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
+
+//import com.score.senz.db.SenzorsDbSource;
 
 /**
  * Handle All senz messages from here
@@ -21,18 +20,16 @@ public class SenzHandler {
     private static final String TAG = SenzHandler.class.getName();
 
     private static Context context;
-    private static ShareSenzListener listener;
 
     private static SenzHandler instance;
 
     private SenzHandler() {
     }
 
-    public static SenzHandler getInstance(Context context, ShareSenzListener listener) {
+    public static SenzHandler getInstance(Context context) {
         if (instance == null) {
             instance = new SenzHandler();
             SenzHandler.context = context;
-            SenzHandler.listener = listener;
         }
         return instance;
     }
@@ -78,10 +75,11 @@ public class SenzHandler {
 
     private void handleShareSenz(Senz senz) {
 
-            Intent newSenzIntent = new Intent("com.score.senzc.NEW_SENZ");
-            newSenzIntent.putExtra("SENZ", senz);
-            context.sendBroadcast(newSenzIntent);
-        }
+        Intent newSenzIntent = new Intent("com.score.senzc.NEW_SENZ");
+        newSenzIntent.putExtra("SENZ", senz);
+        context.sendBroadcast(newSenzIntent);
+    }
+
     private void handleGetSenz(Senz senz) {
 
         Intent newSenzIntent = new Intent("com.score.senzc.NEW_SENZ");
@@ -112,7 +110,6 @@ public class SenzHandler {
         newSenzIntent.putExtra("SENZ", senz);
         context.sendBroadcast(newSenzIntent);
     }
-
 
 
 }

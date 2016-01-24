@@ -14,18 +14,17 @@ import android.os.RemoteException;
 import android.util.Log;
 
 import com.score.senz.ISenzService;
-import com.score.senzc.pojos.Senz;
 import com.score.senz.exceptions.NoUserException;
 import com.score.senz.handlers.SenzHandler;
 import com.score.senz.listeners.ShareSenzListener;
-import com.score.senzc.pojos.User;
 import com.score.senz.receivers.AlarmReceiver;
 import com.score.senz.utils.NetworkUtil;
 import com.score.senz.utils.PreferenceUtils;
 import com.score.senz.utils.RSAUtils;
 import com.score.senz.utils.SenzParser;
 import com.score.senzc.enums.SenzTypeEnum;
-
+import com.score.senzc.pojos.Senz;
+import com.score.senzc.pojos.User;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -89,14 +88,22 @@ public class RemoteSenzService extends Service implements ShareSenzListener {
     // API end point of this service, we expose the endpoints define in ISenzService.aidl
     private final ISenzService.Stub apiEndPoints = new ISenzService.Stub() {
 
-
         @Override
         public void send(Senz senz) throws RemoteException {
             Log.d(TAG, "Senz service call with senz " + senz.getId());
             sendSenzMessage(senz);
         }
 
+        @Override
+        public String getUser() throws RemoteException {
+            try {
+                return PreferenceUtils.getUser(RemoteSenzService.this).getUsername();
+            } catch (NoUserException e) {
+                e.printStackTrace();
 
+                return null;
+            }
+        }
     };
 
     /**
@@ -152,7 +159,7 @@ public class RemoteSenzService extends Service implements ShareSenzListener {
 
         // restart service again
         // its done via broadcast receiver
-        Intent intent = new Intent("com.score.senzservices.senzservice");//ToDo not sure intent string
+        Intent intent = new Intent("com.score.senz.RESTART_SERVICE");
         sendBroadcast(intent);
     }
 
@@ -217,7 +224,7 @@ public class RemoteSenzService extends Service implements ShareSenzListener {
 
                         Log.d(TAG, "SenZ received: ");
 
-                        SenzHandler.getInstance(RemoteSenzService.this, RemoteSenzService.this).handleSenz(senz);
+                        SenzHandler.getInstance(RemoteSenzService.this).handleSenz(senz);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

@@ -167,14 +167,15 @@ public class RegistrationActivity extends Activity implements View.OnClickListen
             if (!isServiceBound) {
                 // init keys
                 RSAUtils.initKeys(this);
+
                 // start service from here
                 Intent serviceIntent = new Intent(RegistrationActivity.this, RemoteSenzService.class);
-                ComponentName c=startService(serviceIntent);
-                //System.out.println(c.getClassName());
+                startService(serviceIntent);
+
                 // bind to service from here as well
-                Intent intent = new Intent();
-                intent.setClassName("com.score.senzservices", "com.score.senzservices.services.RemoteSenzService");
-                bindService(intent, senzServiceConnection, Context.BIND_AUTO_CREATE);
+                Intent bindIntent = new Intent();
+                bindIntent.setClassName("com.score.senz", "com.score.senz.services.RemoteSenzService");
+                bindService(bindIntent, senzServiceConnection, Context.BIND_AUTO_CREATE);
             } else {
                 // start to send senz to server form here
                 isResponseReceived = false;
@@ -244,7 +245,7 @@ public class RegistrationActivity extends Activity implements View.OnClickListen
     private BroadcastReceiver senzMessageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.d(TAG, "Got message from Senz service"+intent.getAction());
+            Log.d(TAG, "Got message from Senz service" + intent.getAction());
             handleMessage(intent);
         }
     };

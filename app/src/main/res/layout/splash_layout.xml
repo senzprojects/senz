@@ -6,7 +6,7 @@
         android:layout_width="fill_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:background="@drawable/freee">
+        android:background="#3e87c1">
 
     <TextView
             android:layout_marginTop="12dp"

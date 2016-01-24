@@ -12,7 +12,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo_z"
+        android:icon="@drawable/could_secure"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -25,7 +25,6 @@
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -41,13 +40,13 @@
             android:enabled="true"
             android:process=":remote">
             <intent-filter>
-                <action android:name="com.score.senzservices.services.RemoteSenzService" />
+                <action android:name="com.score.senz.services.RemoteSenzService" />
             </intent-filter>
         </service>
 
         <receiver android:name="com.score.senz.receivers.BootCompleteReceiver">
             <intent-filter>
-                <action android:name="com.score.senzservices.senzservice" />
+                <action android:name="com.score.senz.RESTART_SERVICE" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
@@ -60,7 +59,7 @@
         </receiver>
         <receiver android:name="com.score.senz.receivers.SenzReceiver">
             <intent-filter>
-                <action android:name="com.score.senzservices.NEW_SENZ" />
+                <action android:name="com.score.senz.NEW_SENZ" />
             </intent-filter>
         </receiver>
         <receiver

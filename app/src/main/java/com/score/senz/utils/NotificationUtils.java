@@ -9,7 +9,6 @@ import android.support.v4.app.NotificationCompat;
 
 import com.score.senz.R;
 import com.score.senz.ui.HomeActivity;
-//import com.score.senzservices.ui.HomeActivity;
 
 
 /**
