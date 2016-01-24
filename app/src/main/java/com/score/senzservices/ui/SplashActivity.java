@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.score.senzservices.R;
 import com.score.senzservices.exceptions.NoUserException;
 import com.score.senzservices.services.RemoteSenzService;
-import com.score.senzservices.utils.Home;
 import com.score.senzservices.utils.PreferenceUtils;
 
 /**
@@ -103,7 +102,7 @@ public class SplashActivity extends Activity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, Home.class);
+                Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
                 SplashActivity.this.startActivity(intent);
                 SplashActivity.this.finish();
             }

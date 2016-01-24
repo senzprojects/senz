@@ -1,4 +1,4 @@
-package com.score.senzservices.utils;
+package com.score.senzservices.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,18 +13,19 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.score.senzservices.R;
+import com.score.senzservices.pojos.AppInfo;
 
 import java.util.ArrayList;
 
 /**
  * Created by Anesu on 1/10/2016.
  */
-public class AppListAdapter extends ArrayAdapter {
-    ArrayList<ApplicationInfo> apps;
+public class AppInfoListAdapter extends ArrayAdapter {
+    ArrayList<AppInfo> apps;
     Context context;
     int resource;
 
-    public AppListAdapter(Context context, int resource, ArrayList<ApplicationInfo> apps) {
+    public AppInfoListAdapter(Context context, int resource, ArrayList<AppInfo> apps) {
         super(context, resource);
         this.apps = apps;
         this.apps = apps;
@@ -37,7 +38,7 @@ public class AppListAdapter extends ArrayAdapter {
         return apps.size();
     }
 
-    public void initUi(View convertView, ApplicationInfo info, ViewHolder holder) {
+    public void initUi(View convertView, AppInfo info, ViewHolder holder) {
         holder.icon = (ImageView) convertView.findViewById(R.id.icon);
         holder.action_btn = (Button) convertView.findViewById(R.id.action);
         holder.description = (TextView) convertView.findViewById(R.id.descr);
@@ -61,7 +62,7 @@ public class AppListAdapter extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final ApplicationInfo info = apps.get(position);
+        final AppInfo info = apps.get(position);
         final ViewHolder holder;
         final View view;
         if (convertView == null) {

@@ -1,4 +1,4 @@
-package com.score.senzservices.utils;
+package com.score.senzservices.pojos;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -7,7 +7,7 @@ import android.graphics.Bitmap;
 /**
  * Created by Anesu on 1/10/2016.
  */
-public class ApplicationInfo {
+public class AppInfo {
     private String name;
     private String packageName;
     private boolean isInstalled;
@@ -15,7 +15,7 @@ public class ApplicationInfo {
     private Bitmap icon;
     private String description;
     Context context;
-    public ApplicationInfo(Context context, String name, boolean isInstalled, double rating,String description,String packageName, Bitmap icon)
+    public AppInfo(Context context, String name, boolean isInstalled, double rating, String description, String packageName, Bitmap icon)
     {
         this.name = name;
         this.isInstalled = isInstalled;

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 
 import com.score.senzservices.R;
+import com.score.senzservices.ui.HomeActivity;
 //import com.score.senzservices.ui.HomeActivity;
 
 
@@ -31,7 +32,7 @@ public class NotificationUtils {
      */
     public static Notification getNotification(Context context, int icon, String title, String message) {
         // set up pending intent
-        Intent intent = new Intent(context, Home.class);
+        Intent intent = new Intent(context, HomeActivity.class);
         intent.setAction(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);

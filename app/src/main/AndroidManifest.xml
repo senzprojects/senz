@@ -68,7 +68,7 @@
             android:process=":remote"></receiver>
 
         <activity
-            android:name=".utils.Home"
+            android:name=".ui.HomeActivity"
             android:label="Senz Applications"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
