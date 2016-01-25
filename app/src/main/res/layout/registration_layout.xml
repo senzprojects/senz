@@ -6,7 +6,7 @@
         android:layout_width="fill_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:background="@drawable/freee">
+        android:background="#306d97">
 
     <ScrollView
             android:layout_width="fill_parent"
@@ -17,6 +17,20 @@
                 android:layout_height="wrap_content"
                 android:layout_width="fill_parent"
                 android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/splash_text"
+                android:visibility="gone"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:text="#"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:textSize="50sp"
+                android:layout_marginBottom="60dp"
+                android:textColor="#306d97"
+                android:background="@drawable/circle_shape_white">
+            </TextView>
 
             <RelativeLayout
                     android:layout_width="fill_parent"

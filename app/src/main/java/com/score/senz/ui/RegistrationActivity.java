@@ -104,7 +104,7 @@ public class RegistrationActivity extends Activity implements View.OnClickListen
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbindService(senzServiceConnection);
+        if (isServiceBound) unbindService(senzServiceConnection);
         unregisterReceiver(senzMessageReceiver);
     }
 
