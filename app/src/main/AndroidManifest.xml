@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.score.senz">
-    android:versionCode="1"
-    android:versionName="1.0">
+    android:versionCode="4"
+    android:versionName="1.4">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
@@ -50,16 +50,11 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.score.senz.receivers.installationReceiver">
+        <receiver android:name=".receivers.InstallationReceiver">
             <intent-filter android:priority="999">
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
 
                 <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.score.senz.receivers.SenzReceiver">
-            <intent-filter>
-                <action android:name="com.score.senz.NEW_SENZ" />
             </intent-filter>
         </receiver>
         <receiver
@@ -68,7 +63,7 @@
 
         <activity
             android:name="com.score.senz.ui.HomeActivity"
-            android:label="Senz Applications"
+            android:label="#Apps"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

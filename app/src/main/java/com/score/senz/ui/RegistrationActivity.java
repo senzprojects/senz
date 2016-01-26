@@ -95,7 +95,7 @@ public class RegistrationActivity extends Activity implements View.OnClickListen
         senzCountDownTimer = new SenzCountDownTimer(16000, 5000);
 
         initUi();
-        registerReceiver(senzMessageReceiver, new IntentFilter("com.score.senzc.DATA"));
+        registerReceiver(senzMessageReceiver, new IntentFilter("com.score.senz.NEW_SENZ"));
     }
 
     /**
@@ -257,11 +257,9 @@ public class RegistrationActivity extends Activity implements View.OnClickListen
      * @param intent intent
      */
     private void handleMessage(Intent intent) {
-        String action = intent.getAction();
+        Senz senz = intent.getExtras().getParcelable("SENZ");
 
-        if (action.equals("com.score.senzc.DATA")) {
-            Senz senz = intent.getExtras().getParcelable("SENZ");
-
+        if (senz != null && senz.getSenzType() == SenzTypeEnum.DATA) {
             if (senz.getAttributes().containsKey("msg")) {
                 // msg response received
                 ActivityUtils.cancelProgressDialog();

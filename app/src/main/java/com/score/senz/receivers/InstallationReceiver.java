@@ -8,8 +8,8 @@ import android.util.Log;
 /**
  * Created by root on 12/16/15.
  */
-public class installationReceiver extends BroadcastReceiver {
-    private static final String TAG = SenzReceiver.class.getName();
+public class InstallationReceiver extends BroadcastReceiver {
+    private static final String TAG = InstallationReceiver.class.getName();
 
     @Override
     public void onReceive(Context context, Intent intent) {
