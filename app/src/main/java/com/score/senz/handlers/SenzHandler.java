@@ -38,27 +38,26 @@ public class SenzHandler {
                 break;
             case SHARE:
                 Log.d(TAG, "SHARE received");
-                broadcastSenz(senz);
+                broadcastSenz(senz, new Intent("com.score.senz.NEW_SENZ"));
                 break;
             case GET:
                 Log.d(TAG, "GET received");
-                broadcastSenz(senz);
+                broadcastSenz(senz, new Intent("com.score.senz.NEW_SENZ"));
                 break;
             case DATA:
                 Log.d(TAG, "DATA received");
-                broadcastSenz(senz);
+                broadcastSenz(senz, new Intent("com.score.senz.DATA_SENZ"));
                 break;
             case PUT:
                 Log.d(TAG, "PUT received");
-                broadcastSenz(senz);
+                broadcastSenz(senz, new Intent("com.score.senz.NEW_SENZ"));
                 break;
         }
     }
 
-    private void broadcastSenz(Senz senz) {
-        Intent newSenzIntent = new Intent("com.score.senz.NEW_SENZ");
-        newSenzIntent.putExtra("SENZ", senz);
-        context.sendBroadcast(newSenzIntent);
+    private void broadcastSenz(Senz senz, Intent intent) {
+        intent.putExtra("SENZ", senz);
+        context.sendBroadcast(intent);
     }
 
 }

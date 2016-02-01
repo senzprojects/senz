@@ -16,7 +16,6 @@ import android.util.Log;
 import com.score.senz.ISenzService;
 import com.score.senz.exceptions.NoUserException;
 import com.score.senz.handlers.SenzHandler;
-import com.score.senz.listeners.ShareSenzListener;
 import com.score.senz.receivers.AlarmReceiver;
 import com.score.senz.utils.NetworkUtil;
 import com.score.senz.utils.PreferenceUtils;
@@ -43,7 +42,7 @@ import java.util.HashMap;
  *
  * @author eranga herath(erangaeb@gamil.com)
  */
-public class RemoteSenzService extends Service implements ShareSenzListener {
+public class RemoteSenzService extends Service {
 
     private static final String TAG = RemoteSenzService.class.getName();
 
@@ -313,11 +312,6 @@ public class RemoteSenzService extends Service implements ShareSenzListener {
         } else {
             Log.e(TAG, "Cannot send senz, No connection available");
         }
-    }
-
-    @Override
-    public void onShareSenz(Senz senz) {
-        sendSenzMessage(senz);
     }
 
 }

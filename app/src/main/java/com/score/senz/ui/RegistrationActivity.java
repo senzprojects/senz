@@ -95,7 +95,7 @@ public class RegistrationActivity extends Activity implements View.OnClickListen
         senzCountDownTimer = new SenzCountDownTimer(16000, 5000);
 
         initUi();
-        registerReceiver(senzMessageReceiver, new IntentFilter("com.score.senz.NEW_SENZ"));
+        registerReceiver(senzMessageReceiver, new IntentFilter("com.score.senz.DATA_SENZ"));
     }
 
     /**
