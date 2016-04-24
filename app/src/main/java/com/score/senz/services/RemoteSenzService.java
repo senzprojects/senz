@@ -136,7 +136,7 @@ public class RemoteSenzService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "Start service");
         initUdpSocket();
-        initPingSender();
+        //initPingSender();
         initUdpListener();
 
         // If we get killed, after returning from here, restart

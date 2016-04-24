@@ -267,7 +267,7 @@ public class RegistrationActivity extends Activity implements View.OnClickListen
                 senzCountDownTimer.cancel();
 
                 String msg = senz.getAttributes().get("msg");
-                if (msg != null && msg.equalsIgnoreCase("UserCreated")) {
+                if (msg != null && msg.equalsIgnoreCase("REGISTRATION_DONE")) {
                     Toast.makeText(this, "Successfully registered", Toast.LENGTH_LONG).show();
 
                     // save user
