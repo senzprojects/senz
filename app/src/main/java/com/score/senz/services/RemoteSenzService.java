@@ -16,6 +16,7 @@ import android.util.Log;
 import com.score.senz.ISenzService;
 import com.score.senz.exceptions.NoUserException;
 import com.score.senz.handlers.SenzHandler;
+import com.score.senz.listeners.SenzResponseListener;
 import com.score.senz.receivers.AlarmReceiver;
 import com.score.senz.utils.NetworkUtil;
 import com.score.senz.utils.PreferenceUtils;
@@ -42,13 +43,13 @@ import java.util.HashMap;
  *
  * @author eranga herath(erangaeb@gamil.com)
  */
-public class RemoteSenzService extends Service {
+public class RemoteSenzService extends Service implements SenzResponseListener {
 
     private static final String TAG = RemoteSenzService.class.getName();
 
     // senz service host and port
     private static final String SENZ_HOST = "udp.mysensors.info";
-    //private static final String SENZ_HOST = "10.22.196.17";
+    //private static final String SENZ_HOST = "10.4.1.21";
     //private static final String SENZ_HOST = "192.168.43.255";
     private static final int SENZ_PORT = 9090;
 
@@ -136,7 +137,7 @@ public class RemoteSenzService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "Start service");
         initUdpSocket();
-        //initPingSender();
+        initPingSender();
         initUdpListener();
 
         // If we get killed, after returning from here, restart
@@ -221,11 +222,11 @@ public class RemoteSenzService extends Service {
                         socket.receive(receivePacket);
                         String senz = new String(message, 0, receivePacket.getLength());
 
-                        Log.d(TAG, "SenZ received: ");
+                        Log.d(TAG, "SenZ received: " + senz);
 
-                        SenzHandler.getInstance(RemoteSenzService.this).handleSenz(senz);
+                        SenzHandler.getInstance(RemoteSenzService.this, RemoteSenzService.this).handleSenz(senz);
                     }
-                } catch (IOException e) {
+                } catch (IOException | NoSuchAlgorithmException | InvalidKeyException | SignatureException e) {
                     e.printStackTrace();
                 }
             }
@@ -261,6 +262,51 @@ public class RemoteSenzService extends Service {
                         message = SenzParser.getSenzMessage(senzPayload, senzSignature);
 
                         Log.d(TAG, "Ping to be send: " + message);
+
+                        // send message
+                        if (address == null) address = InetAddress.getByName(SENZ_HOST);
+                        DatagramPacket sendPacket = new DatagramPacket(message.getBytes(), message.length(), address, SENZ_PORT);
+                        socket.send(sendPacket);
+                    } catch (IOException | NoSuchAlgorithmException | NoUserException | SignatureException | InvalidKeyException | InvalidKeySpecException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Log.e(TAG, "Cannot send ping, No connection available");
+                }
+            }
+        }).start();
+    }
+
+    /**
+     * Send GET message to server
+     */
+    private void sendGetPubKeyMessage(final String receiver) {
+        new Thread(new Runnable() {
+            public void run() {
+                if (NetworkUtil.isAvailableNetwork(RemoteSenzService.this)) {
+                    try {
+                        String message;
+                        PrivateKey privateKey = RSAUtils.getPrivateKey(RemoteSenzService.this);
+                        User user = PreferenceUtils.getUser(RemoteSenzService.this);
+
+                        // create senz attributes
+                        HashMap<String, String> senzAttributes = new HashMap<>();
+                        senzAttributes.put("time", ((Long) (System.currentTimeMillis() / 1000)).toString());
+                        senzAttributes.put("pubkey", "pubkey");
+
+                        // new senz object
+                        Senz senz = new Senz();
+                        senz.setSenzType(SenzTypeEnum.GET);
+                        senz.setSender(new User("", user.getUsername()));
+                        senz.setReceiver(new User("", receiver));
+                        senz.setAttributes(senzAttributes);
+
+                        // get digital signature of the senz
+                        String senzPayload = SenzParser.getSenzPayload(senz);
+                        String senzSignature = RSAUtils.getDigitalSignature(senzPayload.replaceAll(" ", ""), privateKey);
+                        message = SenzParser.getSenzMessage(senzPayload, senzSignature);
+
+                        Log.d(TAG, "GET to be send: " + message);
 
                         // send message
                         if (address == null) address = InetAddress.getByName(SENZ_HOST);
@@ -314,4 +360,8 @@ public class RemoteSenzService extends Service {
         }
     }
 
+    @Override
+    public void onResponse(String receiver) {
+        sendGetPubKeyMessage(receiver);
+    }
 }

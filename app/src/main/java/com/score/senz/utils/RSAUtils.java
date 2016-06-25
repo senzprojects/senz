@@ -3,6 +3,9 @@ package com.score.senz.utils;
 import android.content.Context;
 import android.util.Base64;
 
+import com.score.senz.exceptions.RsaKeyException;
+
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;
 import java.security.KeyPair;
@@ -17,6 +20,11 @@ import java.security.SignatureException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 /**
  * RSR encryption
@@ -102,6 +110,43 @@ public class RSAUtils {
         byte[] signedPayloadContent = Base64.decode(signedPayload, Base64.DEFAULT);
 
         return signature.verify(signedPayloadContent);
+    }
+
+    /**
+     * Encrypt message with public key
+     *
+     * @param message message to encrypt
+     * @return encrypted message
+     */
+    public static String encryptMessage(String message, PublicKey publicKey) throws RsaKeyException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, UnsupportedEncodingException, BadPaddingException, IllegalBlockSizeException {
+        // encrypt with server public key
+        Cipher cipher = Cipher.getInstance("RSA");
+        cipher.init(Cipher.ENCRYPT_MODE, publicKey);
+        byte[] encodedBytes = cipher.doFinal(message.getBytes());
+        String encryptedMessage = Base64.encodeToString(encodedBytes, Base64.DEFAULT);
+
+        return encryptedMessage;
+    }
+
+    /**
+     * Decrypt message
+     *
+     * @param cipherText cipher
+     * @param privateKey private key
+     * @return
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeyException
+     * @throws UnsupportedEncodingException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     */
+    public static String decryptMessage(String cipherText, PrivateKey privateKey) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException, BadPaddingException, IllegalBlockSizeException {
+        Cipher cipher = Cipher.getInstance("RSA");
+        cipher.init(Cipher.DECRYPT_MODE, privateKey);
+        byte[] decodedBytes = cipher.doFinal(Base64.decode(cipherText, Base64.DEFAULT));
+
+        return new String(decodedBytes);
     }
 
 }

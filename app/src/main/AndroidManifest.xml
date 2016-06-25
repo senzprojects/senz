@@ -35,6 +35,12 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.NoActionBar" />
 
+        <activity
+            android:name="com.score.senz.ui.HomeActivity"
+            android:label="#Apps"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
         <service
             android:name="com.score.senz.services.RemoteSenzService"
             android:enabled="true"
@@ -50,21 +56,11 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".receivers.InstallationReceiver">
-            <intent-filter android:priority="999">
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
 
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
         <receiver
-            android:name="com.score.senz.receivers.AlarmReceiver"
-            android:process=":remote"></receiver>
-
-        <activity
-            android:name="com.score.senz.ui.HomeActivity"
-            android:label="#Apps"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".receivers.AlarmReceiver"
+            android:process=":remote">
+        </receiver>
     </application>
 
 </manifest>
