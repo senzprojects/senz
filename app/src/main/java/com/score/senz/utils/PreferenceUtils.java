@@ -55,12 +55,12 @@ public class PreferenceUtils {
      *
      * @param context application context
      * @param key     public/private keys(encoded key string)
-     * @param keyType public_key, private_key, server_key
+     * @param keyName public_key, private_key, server_key
      */
-    public static void saveRsaKey(Context context, String key, String keyType) {
+    public static void saveRsaKey(Context context, String key, String keyName) {
         SharedPreferences preferences = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_MULTI_PROCESS);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString(keyType, key);
+        editor.putString(keyName, key);
         editor.commit();
     }
 
@@ -68,12 +68,12 @@ public class PreferenceUtils {
      * Get saved RSA key string from shared preference
      *
      * @param context application context
-     * @param keyType public_key, private_key, server_key
+     * @param keyName publicKey, privateKey, serverKey, etc
      * @return key string
      */
-    public static String getRsaKey(Context context, String keyType) {
+    public static String getRsaKey(Context context, String keyName) {
         SharedPreferences preferences = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-        return preferences.getString(keyType, "");
+        return preferences.getString(keyName, "");
     }
 
 }

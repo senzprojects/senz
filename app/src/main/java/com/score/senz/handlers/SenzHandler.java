@@ -5,12 +5,17 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.score.senz.listeners.SenzResponseListener;
+import com.score.senz.utils.PreferenceUtils;
+import com.score.senz.utils.RSAUtils;
 import com.score.senz.utils.SenzParser;
 import com.score.senzc.pojos.Senz;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.PublicKey;
 import java.security.SignatureException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
 
 /**
@@ -27,7 +32,7 @@ public class SenzHandler {
     private static SenzHandler instance;
 
     // keep senz that needs to be verified
-    private static final HashMap<String, Senz> senzTobeVerified = new HashMap<>();
+    private static final HashMap<String, Senz> senzesTobeVerified = new HashMap<>();
 
     private SenzHandler() {
     }
@@ -51,12 +56,12 @@ public class SenzHandler {
                 break;
             case SHARE:
                 Log.d(TAG, "SHARE received");
-                verifySenz(senz);
+                verifySenz(senzMessage, senz);
                 broadcastSenz(senz, new Intent("com.score.senz.NEW_SENZ"));
                 break;
             case GET:
                 Log.d(TAG, "GET received");
-                verifySenz(senz);
+                verifySenz(senzMessage, senz);
                 broadcastSenz(senz, new Intent("com.score.senz.NEW_SENZ"));
                 break;
             case DATA:
@@ -67,32 +72,55 @@ public class SenzHandler {
                 break;
             case PUT:
                 Log.d(TAG, "PUT received");
-                verifySenz(senz);
+                verifySenz(senzMessage, senz);
                 broadcastSenz(senz, new Intent("com.score.senz.NEW_SENZ"));
                 break;
         }
     }
 
-    private void verifySenz(Senz senz) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
-        // TODO check public key of receiver exists
+    private void verifySenz(String senzMessage, Senz senz) {
+        // check public key of sender exists
+        try {
+            PublicKey publicKey = RSAUtils.getPublicKey(context, senz.getSender().getUsername());
 
-        // add senz as tobe verified senz
-        senzTobeVerified.put(senz.getSender().getUsername(), senz);
+            Log.d(TAG, "Key exists with username " + senz.getSender().getUsername());
 
-        // get public key of sender
-        listener.onResponse(senz.getSender().getUsername());
+            // verify signature
+            String signedPayload = senzMessage.substring(0, senzMessage.lastIndexOf(" ")).trim();
+            RSAUtils.verifyDigitalSignature(signedPayload, senz.getSignature(), publicKey);
 
-        // TOD if key exists, verify signature of the senz
-        //RSAUtils.verifyDigitalSignature(senz.getId(), senz.getSignature(), null);
+            Log.d(TAG, "Signature verified ");
+        } catch (InvalidKeySpecException | NoSuchProviderException | NoSuchAlgorithmException e) {
+            // no key
+            e.printStackTrace();
+
+            // add senz as tobe verified senz
+            senzesTobeVerified.put(senz.getSender().getUsername(), senz);
+
+            // get public key of sender
+            listener.onResponse(senz.getSender().getUsername());
+        } catch (SignatureException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        }
     }
 
     private void handleData(Senz senz) {
-        // handle DATA with pubKey
-        if (senz.getAttributes().containsKey("#pubKey")) {
+        // handle DATA with pubkey
+        if (senz.getAttributes().containsKey("pubkey")) {
             // received public key of a senzie
-            // extract pubKey and save it
+            String publicKey = senz.getAttributes().get("pubkey");
+            String username = senz.getAttributes().get("name");
+
+            Log.d(TAG, "Received key" + publicKey + " of " + username);
+
+            // save public key
+            PreferenceUtils.saveRsaKey(context, publicKey, username);
 
             // verify corresponding senz with received public key
+            Senz senzTobeVerified = senzesTobeVerified.remove(senz.getSender().getUsername());
+            //RSAUtils.verifyDigitalSignature(senz.getId(), senz.getSignature(), publicKey);
         } else {
             // received application specific data
             // broadcast it

@@ -45,33 +45,33 @@ public class RSAUtils {
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
 
         // save keys in shared preferences
-        savePublicKey(context, keyPair);
-        savePrivateKey(context, keyPair);
+        savePublicKey(context, keyPair.getPublic());
+        savePrivateKey(context, keyPair.getPrivate());
 
         return keyPair;
     }
 
-    private static void savePublicKey(Context context, KeyPair keyPair) {
+    private static void savePublicKey(Context context, PublicKey key) {
         // get public key from keypair
-        byte[] keyContent = keyPair.getPublic().getEncoded();
+        byte[] keyContent = key.getEncoded();
         String publicKey = Base64.encodeToString(keyContent, Base64.DEFAULT).replaceAll("\n", "").replaceAll("\r", "");
 
         // save public key in shared preference
         PreferenceUtils.saveRsaKey(context, publicKey, RSAUtils.PUBLIC_KEY);
     }
 
-    private static void savePrivateKey(Context context, KeyPair keyPair) {
+    private static void savePrivateKey(Context context, PrivateKey key) {
         // get public key from keypair
-        byte[] keyContent = keyPair.getPrivate().getEncoded();
+        byte[] keyContent = key.getEncoded();
         String privateKey = Base64.encodeToString(keyContent, Base64.DEFAULT).replaceAll("\n", "").replaceAll("\r", "");
 
         // save private key in shared preference
         PreferenceUtils.saveRsaKey(context, privateKey, RSAUtils.PRIVATE_KEY);
     }
 
-    public static PublicKey getPublicKey(Context context) throws InvalidKeySpecException, NoSuchAlgorithmException, NoSuchProviderException {
+    public static PublicKey getPublicKey(Context context, String keyName) throws InvalidKeySpecException, NoSuchAlgorithmException, NoSuchProviderException {
         // get key string from shared preference
-        String keyString = PreferenceUtils.getRsaKey(context, RSAUtils.PUBLIC_KEY);
+        String keyString = PreferenceUtils.getRsaKey(context, keyName);
 
         // convert to string key public key
         X509EncodedKeySpec spec = new X509EncodedKeySpec(Base64.decode(keyString, Base64.DEFAULT));
